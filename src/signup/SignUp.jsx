@@ -8,7 +8,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const SignUp = () => {
     const { createUser, profile } = useContext(AuthContext)
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const Navigate = useNavigate();
 
