@@ -3,3 +3,21 @@
 @tailwind utilities;
 
 /* navber */
+body {
+  
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+.navber{
+    background: linear-gradient(to right, #5fff9c, #7bdffe);
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh; /* Ensure the gradient covers the entire viewport */
+}
+.navbar{
+    background: linear-gradient(to right, #95edb7, #7bdffe);
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+   
+}

@@ -7,32 +7,33 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const {singIn} = useContext(AuthContext)
     const [show, setShow] = useState(false);
     const [confirms, setConfirms] = useState(false)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
     
-    const onSubmit = data =>{
-        signIn(data.email,data.password)
-        .then(result =>{
-          const logUser = result.user;
-          reset();
-          toast('Login SuccessFull');
-          navigate(form,{replace:true})
-        })
-        .error(error =>{
-            toast.error(error.message)
-        })
-    }
+    const onSubmit = (data) => {
+        singIn(data.email, data.password)
+          .then((result) => {
+            const loggedUser = result.user;
+            reset();
+            toast.success('login successfully')
+            navigate(from, { replace: true });
+    
+          })
+          .catch((err) => {
+            (err);
+            toast.error(err.message);
+          });
+      };
 
     return (
 
         <div className="pt-60 mb-24">
-            <div className="relative">
-                <img className="w-full" src="https://i.ibb.co/QkHFkQR/seo-optimization-3d-render-cartoon-illustration-107791-16996-1.jpg" alt="" />
-            </div>
-            <div style={{ marginTop: '-800px', width: '600px',height:'700px' }} className="login bg-slate-300 absolute inset-x-0 flex items-center justify-center mx-auto pb-20 pt-10 px-20">
+           
+            <div style={{ marginTop: '-200px', width: '600px',height:'700px' }} className="login bg-slate-300  inset-x-0 flex items-center justify-center mx-auto pb-20 pt-10 px-20">
                 <div>
                     <div className='ml-8'>
                         <h1 className='text-4xl font-bold'>Login Now!</h1>
@@ -61,18 +62,7 @@ const Login = () => {
                             {errors.email && <span className="text-red-600 text-start">required</span>}
                         </div>
 
-                        <div className="form-control">
-                           
-                            <input
-                                type="text"
-                                {...register("photoURL", { required: true })}
-                                placeholder="Photo URL"
-                                className="input input-bordered mt-5  rounded-none w-full"
-                            />
-                            {errors.photoURL && (
-                                <span className="text-red-600 text-start">required</span>
-                            )}
-                        </div>
+                       
                         <div className="form-control">
                             
                             <div className="flex items-center justify-between">
