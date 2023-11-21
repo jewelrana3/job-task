@@ -9,17 +9,12 @@ import { AuthContext } from '../provider/AuthProvider';
 const SignUp = () => {
     const { createUser, profile } = useContext(AuthContext)
     const [show, setShow] = useState(false);
-    const [confirms, setConfirms] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const Navigate = useNavigate();
 
 
     const onSubmit = (data) => {
-        if (data.password !== data.confirmPass) {
-            toast.error("Password Does not match!");
-            return;
-        }
-
+       
         createUser(data.email, data.password)
             .then((result) => {
                 if (result.user) {
@@ -30,7 +25,7 @@ const SignUp = () => {
                         photo:data.photo
                     }
                   
-                    fetch('http://localhost:5000/user', {
+                    fetch('https://server-job-task.vercel.app/user', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -57,7 +52,7 @@ const SignUp = () => {
     return (
         <div className="pt-24 mb-24">
             <div className="relative">
-                <img className="w-full" src="https://i.ibb.co/QkHFkQR/seo-optimization-3d-render-cartoon-illustration-107791-16996-1.jpg" alt="" />
+                <img className="w-full" src="https://i.ibb.co/Q9p3bHQ/depositphotos-515228796-stock-illustration-online-registration-sign-login-account.webp" alt="" />
             </div>
             <div style={{ marginTop: '-800px', width: '600px', height: '700px' }} className="login bg-white absolute inset-x-0 flex items-center justify-center mx-auto px-20 ">
                 <div>
@@ -136,27 +131,7 @@ const SignUp = () => {
                                 </p>
                             )}
                         </div>
-                        <div className="form-control">
-
-                            <div className="flex items-center justify-between">
-                                <input
-                                    type={show ? "text" : "password"}
-                                    {...register("confirmPass", { required: true })}
-                                    placeholder="Confirm Password"
-                                    className="input input-bordered mt-5   w-full rounded-none relative"
-                                />
-                                <span
-                                    className="absolute p-2 cursor-pointer mt-5"
-                                    onClick={() => setConfirms(!confirms)}
-                                    style={{ marginLeft: '500px' }}
-                                >
-                                    {confirms ? <FaEye /> : <FaEyeSlash />}
-                                </span>
-                            </div>
-                            {errors.confirmPass?.type === "required" && (
-                                <p className="text-red-600 text-start">required</p>
-                            )}
-                        </div>
+                      
                         <div className="form-control mt-6 -mb-20">
                             <input style={{ width: '540px', }}
                                 className="signUp btn text-white bg-green-500"

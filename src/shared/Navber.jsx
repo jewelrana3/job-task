@@ -33,7 +33,7 @@ const Navber = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                <li><a>Home</a></li>
+                <Link to='/'><li><a>Home</a></li></Link>
                    
                     <li><a>page</a></li>
                 </ul>

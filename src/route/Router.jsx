@@ -15,7 +15,7 @@ const route = createBrowserRouter([
             {
                 path:'/',
                 element:<Home />,
-                loader:({}) => fetch('http://localhost:5000/user/ka')
+                loader:({}) => fetch('https://server-job-task.vercel.app/user/ka')
             },
             {
                 path:'/sign',

@@ -3,7 +3,7 @@ import  { useEffect, useState } from 'react';
 const useUser = () => {
    const [user,setUser] = useState('')
    useEffect(()=>{
-    fetch('http://localhost:5000/user')
+    fetch('https://server-job-task.vercel.app/user')
     .then(res => res.json())
     .then(data =>{
         setUser(data)

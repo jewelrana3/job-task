@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/user/ka');
+                const response = await fetch('https://server-job-task.vercel.app/user/ka');
                 const data = await response.json();
                 setUserData(data);
                 (data)

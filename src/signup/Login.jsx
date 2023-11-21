@@ -98,30 +98,10 @@ const Login = () => {
                                 </p>
                             )}
                         </div>
-                        <div className="form-control">
-                          
-                            <div className="flex items-center justify-between">
-                                <input
-                                    type={show ? "text" : "password"}
-                                    {...register("confirmPass", { required: true })}
-                                    placeholder="Confirm Password"
-                                    className="input input-bordered mt-5   w-full rounded-none relative"
-                                />
-                                <span
-                                    className="absolute p-2 cursor-pointer mt-5"
-                                    onClick={() => setConfirms(!confirms)}
-                                    style={{ marginLeft: '500px' }}
-                                >
-                                    {confirms ? <FaEye /> : <FaEyeSlash />}
-                                </span>
-                            </div>
-                            {errors.confirmPass?.type === "required" && (
-                                <p className="text-red-600 text-start">required</p>
-                            )}
-                        </div>
+                    
                         <div className="form-control mt-6 -mb-20">
                             <input style={{ width: '540px', }}
-                                className="signUp btn text-white"
+                                className="signUp btn text-white bg-primary"
                                 type="submit"
                                 value="Login"
                             />
